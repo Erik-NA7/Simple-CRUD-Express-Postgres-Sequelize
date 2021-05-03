@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='/stylesheets/bootstrap.min.css'>
-    <link rel='stylesheet' href='/stylesheets/style.css'>
-  </head>
-  <body>
+<%- include('include/_header') %>  
     <div class="container text-center" style="width: 400px;">
       <h1>Delete User</h1>
     </div>  
@@ -20,11 +12,8 @@
         <button type="submit" class="btn btn-primary my-2 mx-auto text-center" id="submitId">Submit</button>
       </form>
     </div> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
-    <script>
-      const deleteForm = document.getElementById('deleteUserForm'); 
+<%- include('include/_footer') %>
+      <!-- const deleteForm = document.getElementById('deleteUserForm'); 
       deleteForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const formData = new FormData(this);
@@ -36,9 +25,4 @@
           method: 'GET',
           body: searchParams
         })
-      })
-    </script>
-  </body>
-</html> 
- 
-
+      }) -->

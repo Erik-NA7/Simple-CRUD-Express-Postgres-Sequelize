@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='/stylesheets/bootstrap.min.css'>
-    <link rel='stylesheet' href='/stylesheets/style.css'>
-  </head>
-  <body>
+<%- include('include/_header') %>  
     <div class="container text-center" style="width: 400px;">
       <h1>Find User</h1>
     </div>  
@@ -24,12 +16,8 @@
         <button class="btn btn-primary text-center" id="showAll">Show all</button>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
-    <script>  
-  
-      const findForm = document.getElementById('findUserForm');
+<%- include('include/_footer') %>  
+      <!-- const findForm = document.getElementById('findUserForm');
       // const findAll = document.getElementById('showAll');
       
       findForm.addEventListener('submit', function(e) {
@@ -46,12 +34,8 @@
       })
       
       document.getElementById('showAll').onclick = () => {
-        // location.href = "http://localhost:3000/user/findall";
-        fetch('/api/user-game/findall', {
+        // location.href = "http://localhost:3000/api/usergames/";
+        fetch('/api/usergames/', {
           method:'GET'
-        })
-      }
-        
-    </script>
-  </body>
-</html>
+        }).then()
+      } -->

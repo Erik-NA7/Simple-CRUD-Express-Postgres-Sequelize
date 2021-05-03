@@ -1,12 +1,25 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.row {
+  height: 95vh;
 }
 
-a {
-  color: #00B7FF;
+.sidebar {
+  background: #2F323A;
 }
 
-.btn-primary {
-  width: 270px !important;
+.sidebar a {
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+
+.right-panel {
+  background: #e1e2e7;
+}
+
+#userdata {
+  height: 50%;
 }

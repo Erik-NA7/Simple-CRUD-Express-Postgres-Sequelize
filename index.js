@@ -13,13 +13,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 let admin = require('./admin/admin.json')
 
 // Routes
-const userRoute = require('./routes/user')
+const apiRoute = require('./routes/apiroute')
 
 app.get('/', (req, res) => {
     res.render('index', { tittle: 'Welcome to Dashboard' })
 })
 
-app.use('/user', userRoute)
+app.get('/create', (req, res) => {
+  res.render('create', { title: 'Create New User' })  
+})
+
+app.get('/update', (req, res) => {
+  res.render('update', { title: 'Update User Data' })  
+})
+
+app.use('/api', apiRoute)
 
 app.listen(port, () => {
   console.log(`Server is up and running at http:localhost:${port}`)

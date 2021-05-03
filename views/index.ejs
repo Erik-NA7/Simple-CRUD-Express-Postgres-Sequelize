@@ -8,27 +8,73 @@
     <link rel='stylesheet' href='/stylesheets/style.css'>
   </head>
   <body>
-  <div class="container-fluid text-center">
-  <h1>Dashboard</h1>
-  <h6 class="my-3">Database Menu</h6>
-  <a href='/user/create'>
-    <button type="submit" class="btn btn-primary my-2">Create User</button>
-  </a>
-  <br>
-  <a href='/user/find'>
-    <button type="submit" class="btn btn-primary my-2">Find User</button>
-  </a>
-  <br>
-  <a href='/user/update'>
-    <button type="submit" class="btn btn-primary my-2">Update User</button>
-  </a>
-  <br>
-  <a href='/user/delete'>
-    <button type="submit" class="btn btn-primary my-2">Delete User</button>
-  </a>
-  </div> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="/javascripts/bootstrap.min.js"></script>
-  </body>
-</html>
+    <div class="container-fluid main">
+      <div class="row my-2">
+        <div class="col-2 offset-1 pt-5 sidebar">
+          <a id="find" href='#'>Find User</a>
+          <a id="create" href='/user/create'>Create User</a>
+        </div>
+        <div class="col-8 p-5 right-panel">
+          <form action="/" method="POST" id="userdata">User Data
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="text-center">ID</th>
+                  <th class="text-center">User name</th>
+                  <th class="text-center">Full name</th>
+                  <th class="text-center">Email</th>
+                  <th class="text-center">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">1</td>
+                  <td>username</td>
+                  <td>exampleName</td>
+                  <td>example@gmail.com</td>
+                  <td class="d-flex" style="justify-content: space-evenly;">
+                    <a href="/user/update" class="action">
+                      <span class="text-gradient">Update</span>
+                    </a>
+                    <a href="/user/delete" class="action">
+                      <span class="text-gradient">Delete</span>
+                    </a>
+                    <a href="/user/history" class="action">
+                      <span class="text-gradient">History</span>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </form>
+          <form action="/" method="POST" id="userhistory">User History
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="text-center">ID</th>
+                  <th class="text-center">Username</th>
+                  <th class="text-center">Score</th>
+                  <th class="text-center">Created</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">1</td>
+                  <td>username</td>
+                  <td>exampleName</td>
+                  <td>example@gmail.com</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </form>
+        </div>
+      </div>  
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/display.js"></script>
+    </body>
+  </html>

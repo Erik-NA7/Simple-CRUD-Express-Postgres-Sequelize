@@ -19,8 +19,11 @@ const { response } = require('express');
 app.use('/api', apiRoute)
 
 app.get('/', (req, res) => {
-     res.render('index', { title: "Welcome to Dashboard" })
+     res.render('login', { title: "Welcome to Dashboard" })
   })
+app.get('/', (req, res) => {
+    res.render('index', { title: "Welcome to Dashboard" })
+ })
 
 app.get('/users', (req, res) => {
   axios.get('http://localhost:3000/api/users')

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Welcome</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='/stylesheets/bootstrap.min.css'>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+  </head>
+    <div class="container mt-5" style="width: 300px;">
+      <h2 class="text-center my-2">Admin Login</h2>
+      <form id="loginpanel">
+        <div class="form-group">
+          <input type="text" class="form-control" name="username" value="superuser">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="password" placeholder="superadmin">
+        </div>
+        <button type="submit" class="btn btn-primary text-center" id="submitData">Login</button>
+      </form>
+    </div>         
+<%- include('include/_footer') %>

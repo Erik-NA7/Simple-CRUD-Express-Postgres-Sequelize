@@ -11,13 +11,15 @@
     <div class="container-fluid main">
       <div class="row my-2">
         <div class="col-2 offset-1 pt-5 sidebar">
-          <a id="find" href='/users'>Show All Users</a>
-          <a id="find" href='#'>Find A User</a>
-          <form action='/users' method="GET" id="findUserForm">
+          <a href='/users'>Show All Users</a>
+          <a href='#'>Find A User</a>
+          <form id="findUserForm">
             <div class="form-group">
-              <input type="text" class="form-control" name="user_id" placeholder="Enter user Id">
+              <input type="text" class="form-control" name="id" placeholder="Enter user Id">
             </div>
-            <button type="submit" class="btn btn-success text-center" id="findbutton">Find</button> 
+            <a href="/users">   
+              <button type="submit" class="btn btn-success text-center" id="findbutton">Find</button> 
+            </a>
           </form>
           <a id="create" href='/create'>Create User</a>
         </div>

@@ -13,8 +13,7 @@ exports.create = (req, res) => {
       password: req.body.password,
     })
     .then(data => { 
-      // res.send(data)
-      res.redirect('/createbio')
+      res.send(data)
     }).catch(err => {
       res.status(500).send({
         message:err.message||"Can't create user"
@@ -57,8 +56,8 @@ exports.createBio = (req, res) => {
     userId: req.body.id
   })
   .then(data => {
-      res.redirect('/')
-  }).catch(err => {
+      res.send(data)
+      }).catch(err => {
     res.status(500).send({
       message:err.message||"Can't create user"
     })

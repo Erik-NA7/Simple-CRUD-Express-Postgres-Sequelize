@@ -16,6 +16,7 @@ let admin = require('./admin/admin.json')
 // Routes
 const apiRoute = require('./routes/apiroute');
 const { response } = require('express');
+app.use('/api', apiRoute)
 
 app.get('/', (req, res) => {
      res.render('index', { title: "Welcome to Dashboard" })
@@ -36,7 +37,13 @@ app.get('/create', (req, res) => {
 })
 
 app.get('/update', (req, res) => {
-  res.render('updateuser', { title: 'Update User Data' })  
+  axios.get(`http://localhost:3000/api/users/${req.query.id}`)
+  .then(function(response) {
+    res.render('updateuser', { user: response.data })
+  })
+  .catch(err => {
+    res.send(err);
+  })
 })
 
 app.get('/createbio', (req, res) => {
@@ -46,10 +53,6 @@ app.get('/createbio', (req, res) => {
 app.get('/updatebio', (req, res) => {
   res.render('createbio', { title: 'Enter Biodata' })  
 })
-
-
-
-app.use('/api', apiRoute)
 
 app.listen(port, async () => {
   console.log(`Server is up and running at http:localhost:${port}`)

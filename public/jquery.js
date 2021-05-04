@@ -3,5 +3,16 @@ $("#createUser").submit(function(event){
 })
 
 $("#userBio").submit(function(event){
-    alert("User Created Succesfully!")
+    alert("User Biodate Created Succesfully!")
+})
+
+$("#updateUser").submit(function(event){
+    event.preventDefault();
+    const unindexed_array = $(this).serializeArray();
+    console.log(unindexed_array)
+    
+})
+
+$("#updateuserBio").submit(function(event){
+    alert("User Biodata Updated Succesfully!")
 })

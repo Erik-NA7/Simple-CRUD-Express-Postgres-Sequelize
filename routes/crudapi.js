@@ -22,28 +22,10 @@ exports.create = (req, res) => {
   });
 }
 
-exports.createBio = (req, res) => {
-  if (!req.body) {
-    return res.status(400).send({ message: "Content not be empty" })
-  }
-  Biodata.create({
-    fullname: req.body.fullname,
-    email: req.body.email
-  })
-  .then(data => {
-      // 
-      res.redirect('/')
-  }).catch(err => {
-    res.status(500).send({
-      message:err.message||"Can't create user"
-    })
-  })
-}
-
 // update user
 exports.update = (req, res) => {
   if (!req.body) {
-    return res.status(400).send({ message: "Content not be empty" })
+    return res.status(400).send({ message: "No data changeed!" })
   }
   UserGames.update({
     username: req.body.username,
@@ -64,28 +46,79 @@ exports.update = (req, res) => {
   })
 }
 
-// retrieve all user or single user
+// create and save new user bio
+exports.createBio = (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({ message: "Content not be empty" })
+  }
+  Biodata.create({
+    fullname: req.body.fullname,
+    email: req.body.email
+  })
+  .then(data => {
+      res.redirect('/')
+  }).catch(err => {
+    res.status(500).send({
+      message:err.message||"Can't create user"
+    })
+  })
+}
+
+// update and save user bio
+exports.updateBio = (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({ message: "Content not be empty" })
+  }
+  Biodata.update({
+    fullname: req.body.fullname,
+    email: req.body.email
+  })
+  .then(data => {
+      // 
+      res.redirect('/')
+  }).catch(err => {
+    res.status(500).send({
+      message:err.message||"Can't create user"
+    })
+  })
+}
+
+// retrieve all user
 exports.findAll = (req, res) => {
   UserGames.findAll()
-  .then(usergames => {
-      res.send( 
-        usergames
-      )
+  .then(data => {
+      res.send(data)
     })
 }
 
+// retrieve single user
 exports.findOne = (req, res) => {
-  if (req.params.user_id) {
+  if (req.params.id) {
     UserGames.findOne({
-      where: { id: req.params.user_id }
+      where: { id: req.params.id }
     })
     .then (data => {
       res.send(data)
-      // if (!data) {
-      //   res.status(404).send({ message: "User not found" })
-      // } else {
-      //   res.send(data)
-      // }
+    })
+  }
+}
+
+// retrieve all biodata
+exports.findAllbio = (req, res) => {
+  Biodata.findAll()
+  .then(data => {
+      res.send(data)
+    })
+}
+
+// retrieve single biodata
+exports.findOnebio = (req, res) => {
+  if (req.params.id) {
+    Biodata.findOne({
+      where: { id: req.params.id }
+    })
+    .then (data => {
+      res.send(data)
     })
   }
 }
@@ -111,62 +144,3 @@ exports.delete = (req, res) => {
     })
   })
 }
-// res.status(200).json(usergames)
-
-// api.post('/createuser', (req, res) => {
-//     UserGames.create({
-//         username: req.body.username,
-//         password: req.body.password,
-//     })
-//     .then(usergames => {
-//         res.status(201).json(usergames)
-//     }) .catch(err => {
-//         res.status(422).json("Can't create user")
-//     })
-// })
-
-// api.get('/usergames', (req, res) => {
-//     UserGames.findAll()
-//     .then(usergames => {
-//         res.render('show', { 
-//             usergames
-//         })
-//             res.status(200).json(usergames)
-//     })
-// })
-    
-    // GET usergames by ID
-// api.get('/usergames/:id', (req, res) => {
-//     UserGames.findOne({
-//         where: { id: req.params.id }
-//     })
-//     .then(usergames => {
-//         res.status(200).json(usergames)
-//     })
-// })
-
-// api.put('/usergames/:id', (req, res) => {
-//     UserGames.update({
-//         username: req.body.username,
-//         password: req.body.password
-//     }, {
-//     where: { id: req.params.id }
-//     })
-//         .then(usergames => {
-//             res.status(201).json(usergames)
-//         }) .catch(err => {
-//             res.status(422).json("Can't update user")
-//     })
-// })
-
-// Delete by id
-// api.delete('/usergames/:id', (req, res) => {
-//     UserGames.destroy({
-//         where: { id: req.params.id }
-//     })
-//     .then(usergames => {
-//         res.status(200).json(usergames)
-//     })
-// })
-
-// module.exports = api;

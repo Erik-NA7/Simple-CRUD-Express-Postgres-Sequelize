@@ -7,8 +7,7 @@ const api = express()
 // create and save new user
 exports.create = (req, res) => {
   if (!req.body) {
-    res.status(400).send({ message: "Content not be empty" })
-    return;
+    return res.status(400).send({ message: "Content not be empty" })
   }
   UserGames.create({
     username: req.body.username,
@@ -25,16 +24,24 @@ exports.create = (req, res) => {
 
 // update user
 exports.update = (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({ message: "Content not be empty" })
+  }
   UserGames.update({
-      username: req.body.username,
-      password: req.body.password
+    username: req.body.username,
+    password: req.body.password
   }, {
   where: { id: req.params.id }
   })
-      .then(usergames => {
-          res.status(201).json(usergames)
-      }) .catch(err => {
-          res.status(422).json("Can't update user")
+    .then(data => {
+      if (!data) {
+        res.stats(404).send({ message: `Can't update user with id: ${id} or User not found` })
+      } else {
+        res.send(data)
+    }
+  })
+    .catch(err => {
+      res.status(500).send({ message: "An Error Occured" })
   })
 }
 
@@ -42,19 +49,26 @@ exports.update = (req, res) => {
 exports.find = (req, res) => {
   UserGames.findAll()
   .then(usergames => {
-      res.render('show', { 
+      res.send( 
         usergames
-      })
+      )
     })
 }
 
 exports.findOne = (req, res) => {
-  UserGames.findOne({
+  if (req.params.id) {
+    UserGames.findOne({
       where: { id: req.params.id }
-  })
-  .then(usergames => {
-      res.status(200).json(usergames)
-  })
+    })
+    .then (data => {
+      res.send(data)
+      // if (!data) {
+      //   res.status(404).send({ message: "User not found" })
+      // } else {
+      //   res.send(data)
+      // }
+    })
+  }
 }
 
 // delete a user
@@ -62,11 +76,23 @@ exports.delete = (req, res) => {
   UserGames.destroy({
       where: { id: req.params.id }
   })
-  .then(usergames => {
-      res.status(200).json(usergames)
+  .then(data => {
+    if (!data) {
+      res.status(404).send({ message: `Can't delete user with id: ${id} or User not found` })
+    } else {
+      res.send({
+        message: "User deleted"
+      })
+    }
+      
+  })
+  .catch(err => {
+    res.status(500).send({
+      message: "Error occured"
+    })
   })
 }
-
+// res.status(200).json(usergames)
 
 // api.post('/createuser', (req, res) => {
 //     UserGames.create({

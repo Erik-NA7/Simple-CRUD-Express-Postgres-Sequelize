@@ -1,17 +1,19 @@
-<% for(var i = 0; i < users.length; i++) { %>
+<% for (var i of users) { %>
 <tr>
-    <td><%= i + 1 %></td>
-    <td><%= users[i].name %></td>
-    <td><%= users[i].email %></td>
-    <td><%= users[i].gender %></td>
-    <td><%= users[i].status %></td>
-    <td>
-        <a href="/update-user?id=<%= users[i]._id%>" class="btn border-shadow update">
-            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
-        </a>
-        <a class="btn border-shadow delete" data-id=<%= users[i]._id%> >
-            <span class="text-gradient"><i class="fas fa-times"></i></span>
-        </a>
-    </td>
+  <td><%= i.id %></td>
+  <td><%= i.username %></td>
+  <td><%= i.password %></td>
+  <td><%= i.status %></td>
+  <td class="d-flex" style="justify-content: space-evenly;">
+    <a href="/update" class="action">
+      <span class="text-gradient">Update</span>
+    </a>
+    <a href="/delete" class="action">
+      <span class="text-gradient">Delete</span>
+    </a>
+    <a href="/history" class="action">
+      <span class="text-gradient">History</span>
+    </a>
+  </td>
 </tr>
 <% } %>

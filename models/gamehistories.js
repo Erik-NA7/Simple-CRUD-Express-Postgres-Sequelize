@@ -11,11 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      GameHistories.belongsTo(models.UserGames)
+      GameHistories.belongsTo(models.UserGames);
     }
   };
   GameHistories.init({
-    score: DataTypes.STRING
+    score: DataTypes.STRING,
+
   }, {
     sequelize,
     modelName: 'GameHistories',

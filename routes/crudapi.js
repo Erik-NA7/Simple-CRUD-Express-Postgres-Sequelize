@@ -37,8 +37,7 @@ exports.update = (req, res) => {
       if (!data) {
         res.stats(404).send({ message: `Can't update user with id: ${id} or User not found` })
       } else {
-        // res.send(data)
-        res.redirect('/updatebio')
+        res.send(data)
     }
   })
     .catch(err => {

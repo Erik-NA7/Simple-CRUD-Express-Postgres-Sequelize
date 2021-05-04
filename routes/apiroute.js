@@ -13,7 +13,7 @@ router.get('/update', (req, res) => {
 
 //API
 router.post('/users', crudapi.create)
-router.get('/users', crudapi.find)
+router.get('/users', crudapi.findAll)
 router.get('/users/:id', crudapi.findOne)
 router.put('/users/:id', crudapi.update)
 router.delete('/users/:id', crudapi.delete)

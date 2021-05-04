@@ -18,9 +18,13 @@ const apiRoute = require('./routes/apiroute');
 const { response } = require('express');
 
 app.get('/', (req, res) => {
+     res.render('index', { title: "Welcome to Dashboard" })
+  })
+
+app.get('/showall', (req, res) => {
   axios.get('http://localhost:3000/api/users')
   .then(function(response) {
-    res.render('index', { users: response.data })
+    res.render('showall', { users: response.data })
   })
   .catch(err => {
     response.send(err);
@@ -37,8 +41,6 @@ app.get('/update', (req, res) => {
 
 app.use('/api', apiRoute)
 
-const sequelize = require('sequelize')
-sequelize.sync({ force: true });
 app.listen(port, async () => {
   console.log(`Server is up and running at http:localhost:${port}`)
 })

@@ -1,79 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Welcome</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='/stylesheets/bootstrap.min.css'>
-    <link rel='stylesheet' href='/stylesheets/style.css'>
-  </head>
-  <body>
-    <div class="container-fluid main">
-      <div class="row my-2">
-        <div class="col-2 offset-1 pt-5 sidebar">
-          <a id="find" href='/find'>Find User</a>
-          <a id="create" href='/create'>Create User</a>
-        </div>
-        <div class="col-8 p-5 right-panel">
-          <form action="/" method="POST" id="userdata">User Data
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th class="text-center">ID</th>
-                  <th class="text-center">User name</th>
-                  <th class="text-center">Full name</th>
-                  <th class="text-center">Email</th>
-                  <th class="text-center">Action</th>
-                </tr>
-              </thead>
+<%- include('include/_header') %> 
               <tbody>
-                <%- include('include/_show') %>
-                <!-- <tr>
-                  <td class="text-center">1</td>
-                  <td>username</td>
-                  <td>exampleName</td>
-                  <td>example@gmail.com</td>
-                  <td class="d-flex" style="justify-content: space-evenly;">
-                    <a href="/update" class="action">
-                      <span class="text-gradient">Update</span>
-                    </a>
-                    <a href="/delete" class="action">
-                      <span class="text-gradient">Delete</span>
-                    </a>
-                    <a href="/history" class="action">
-                      <span class="text-gradient">History</span>
-                    </a>
-                  </td>
-                </tr> -->
-              </tbody>
-            </table>
-          </form>
-
-          <form action="/" method="POST" id="userhistory">User History
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th class="text-center">ID</th>
-                  <th class="text-center">Username</th>
-                  <th class="text-center">Score</th>
-                  <th class="text-center">Created</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="text-center">1</td>
-                  <td>username</td>
-                  <td>exampleName</td>
-                  <td>example@gmail.com</td>
-                </tr>
+                
               </tbody>
             </table>
           </form>
         </div>
       </div>  
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
-    </body>
-  </html>
+<%- include('include/_footer') %> 

@@ -1,25 +1,16 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Biodata extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-      Biodata.belongsTo(models.UserGames)  
-    }
-  };
-  Biodata.init({
+  const Biodata =  sequelize.define('Biodata', {
     fullname: DataTypes.STRING,
-    email: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Biodata',
+    email: DataTypes.STRING,
+    userId: DataTypes.STRING,
   });
+  Biodata.associate = function(models) {
+    Biodata.belongsTo(models.UserGames, {
+      foreignKey: 'userId',
+      onDelete: 'CASCADE'
+    })
+  };
   return Biodata;
 };

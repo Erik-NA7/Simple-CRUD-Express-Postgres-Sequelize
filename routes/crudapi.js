@@ -46,7 +46,7 @@ exports.update = (req, res) => {
 }
 
 // retrieve all user or single user
-exports.find = (req, res) => {
+exports.findAll = (req, res) => {
   UserGames.findAll()
   .then(usergames => {
       res.send( 

@@ -12,7 +12,7 @@
   width: 100%;
   line-height: 60px;
   text-decoration: none;
-  padding-left: 40px;
+  padding-left: 10px;
   box-sizing: border-box;
 }
 
@@ -22,4 +22,8 @@
 
 #userdata {
   height: 50%;
+}
+
+.btn-success {
+  width: 100% !important;
 }

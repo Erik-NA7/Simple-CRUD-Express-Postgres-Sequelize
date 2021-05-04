@@ -32,6 +32,16 @@ app.get('/users', (req, res) => {
   })
 })
 
+app.get('/biodata', (req, res) => {
+  axios.get('http://localhost:3000/api/biodata')
+  .then(function(response) {
+    res.render('biodata', { bio: response.data })
+  })
+  .catch(err => {
+    response.send(err);
+  })
+})
+
 app.get('/create', (req, res) => {
   res.render('createuser', { title: 'Create New User' })  
 })

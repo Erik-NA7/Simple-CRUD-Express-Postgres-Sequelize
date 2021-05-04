@@ -139,8 +139,7 @@ exports.delete = (req, res) => {
       res.send({
         message: "User deleted"
       })
-    }
-      
+    }     
   })
   .catch(err => {
     res.status(500).send({

@@ -12,5 +12,6 @@ router.get('/users/:id', crudapi.findOne)
 router.get('/biodata', crudapi.findAllbio)
 router.get('/biodata/:id', crudapi.findOnebio)
 router.delete('/users/:id', crudapi.delete)
+router.delete('/biodata/:id', crudapi.deleteBio)
 
 module.exports = router;

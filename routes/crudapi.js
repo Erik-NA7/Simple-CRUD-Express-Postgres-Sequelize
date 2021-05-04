@@ -6,20 +6,21 @@ const express = require('express')
 // create and save new user
 exports.create = (req, res) => {
   if (!req.body) {
-    return res.status(400).send({ message: "Content not be empty" })
-  }
-  UserGames.create({
-    username: req.body.username,
-    password: req.body.password,
-  })
-  .then(data => { 
-    // res.send(data)
-    res.redirect('/createbio')
-  }).catch(err => {
-    res.status(500).send({
-      message:err.message||"Can't create user"
+    res.status(400).send({ message: "Content not be empty" })
+  } else {
+    UserGames.create({
+      username: req.body.username,
+      password: req.body.password,
     })
-  });
+    .then(data => { 
+      // res.send(data)
+      res.redirect('/createbio')
+    }).catch(err => {
+      res.status(500).send({
+        message:err.message||"Can't create user"
+      })
+    });
+  }
 }
 
 // update user
@@ -52,7 +53,8 @@ exports.createBio = (req, res) => {
   }
   Biodata.create({
     fullname: req.body.fullname,
-    email: req.body.email
+    email: req.body.email,
+    userId: req.body.id
   })
   .then(data => {
       res.redirect('/')
@@ -70,14 +72,17 @@ exports.updateBio = (req, res) => {
   }
   Biodata.update({
     fullname: req.body.fullname,
-    email: req.body.email
-  })
+    email: req.body.email,
+    userId: req.body.userId
+  }, {
+    where: { id: req.params.id }
+    })
   .then(data => {
       // 
-      res.redirect('/')
+      res.send(data)
   }).catch(err => {
     res.status(500).send({
-      message:err.message||"Can't create user"
+      message:err.message||"Can't update bio"
     })
   })
 }
@@ -133,6 +138,27 @@ exports.delete = (req, res) => {
     } else {
       res.send({
         message: "User deleted"
+      })
+    }
+      
+  })
+  .catch(err => {
+    res.status(500).send({
+      message: "Error occured"
+    })
+  })
+}
+
+exports.deleteBio = (req, res) => {
+  Biodata.destroy({
+      where: { id: req.params.id }
+  })
+  .then(data => {
+    if (!data) {
+      res.status(404).send({ message: `Can't delete biodata with id: ${id} or data not found` })
+    } else {
+      res.send({
+        message: "Biodata deleted"
       })
     }
       

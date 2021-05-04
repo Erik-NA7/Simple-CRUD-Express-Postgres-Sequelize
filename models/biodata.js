@@ -2,9 +2,16 @@
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   const Biodata =  sequelize.define('Biodata', {
-    fullname: DataTypes.STRING,
-    email: DataTypes.STRING,
-    userId: DataTypes.STRING,
+    fullname: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    userId: DataTypes.INTEGER,
+    allowNull: false
   });
   Biodata.associate = function(models) {
     Biodata.belongsTo(models.UserGames, {

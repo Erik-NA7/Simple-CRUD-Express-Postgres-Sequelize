@@ -2,8 +2,14 @@
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   const GameHistories = sequelize.define('GameHistories', {
-    score: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    score: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   });
   GameHistories.associate = function(models) {
     GameHistories.belongsTo(models.UserGames, {

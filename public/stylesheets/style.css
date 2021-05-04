@@ -27,3 +27,9 @@
 .btn-success {
   width: 100% !important;
 }
+
+.btn-action {
+  font-size: 0.8rem;
+  color: #ffffff;
+  background-color: rgb(22, 123, 255);
+}

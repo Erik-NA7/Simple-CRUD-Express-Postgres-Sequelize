@@ -1,0 +1,14 @@
+<%- include('include/_header') %>  
+    <div class="container my-2" style="width: 300px;">
+      <h2 class="text-center my-2">Enter User Data</h2>
+      <form method="POST" action="/api/users" id="createUser">
+        <div class="form-group">
+          <input type="text" class="form-control" name="username" aria-describedby="usernameHelp" placeholder="User name">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary text-center" id="submitData">Save</button>
+      </form>
+    </div>         
+<%- include('include/_footer') %>

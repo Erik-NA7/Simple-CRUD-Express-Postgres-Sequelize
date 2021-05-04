@@ -1,17 +1,28 @@
+<form action="/" method="POST" id="userdata">User Data
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">User name</th>
+        <th class="text-center">Full name</th>
+        <th class="text-center">Email</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
 <% for (var i of users) { %>
-<tr>
+  <tr>
   <td><%= i.id %></td>
   <td><%= i.username %></td>
   <td><%= i.password %></td>
   <td><%= i.status %></td>
-  <td class="d-flex" style="justify-content: space-evenly;">
-    <a href="/update" class="action">
+  <td class="d-flex justify-content-center" >
+    <a href="/update" class="btn btn-action">
       <span class="text-gradient">Update</span>
     </a>
-    <a method='DELETE' href="/users/<%= i.id %>" class="action">
+    <a href="/users/<%= i.id %>" class="btn btn-action">
       <span class="text-gradient">Delete</span>
     </a>
-    <a href="/history" class="action">
+    <a href="/history" class="btn btn-action">
       <span class="text-gradient">History</span>
     </a>
   </td>

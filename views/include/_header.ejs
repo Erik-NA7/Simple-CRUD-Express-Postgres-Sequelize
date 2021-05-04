@@ -11,9 +11,9 @@
     <div class="container-fluid main">
       <div class="row my-2">
         <div class="col-2 offset-1 pt-5 sidebar">
-          <a id="find" href='/showall'>Show All Users</a>
-          <a id="find" href='/findOne'>Find A User</a>
-          <form action='/' method="GET" id="findUserForm">
+          <a id="find" href='/users'>Show All Users</a>
+          <a id="find" href='#'>Find A User</a>
+          <form action='/users' method="GET" id="findUserForm">
             <div class="form-group">
               <input type="text" class="form-control" name="user_id" placeholder="Enter user Id">
             </div>
@@ -22,14 +22,3 @@
           <a id="create" href='/create'>Create User</a>
         </div>
         <div class="col-8 p-5 right-panel">
-          <form action="/" method="POST" id="userdata">User Data
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th class="text-center">ID</th>
-                  <th class="text-center">User name</th>
-                  <th class="text-center">Full name</th>
-                  <th class="text-center">Email</th>
-                  <th class="text-center">Action</th>
-                </tr>
-              </thead>

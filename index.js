@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
      res.render('index', { title: "Welcome to Dashboard" })
   })
 
-app.get('/showall', (req, res) => {
+app.get('/users', (req, res) => {
   axios.get('http://localhost:3000/api/users')
   .then(function(response) {
     res.render('showall', { users: response.data })
@@ -32,12 +32,22 @@ app.get('/showall', (req, res) => {
 })
 
 app.get('/create', (req, res) => {
-  res.render('create', { title: 'Create New User' })  
+  res.render('createuser', { title: 'Create New User' })  
 })
 
 app.get('/update', (req, res) => {
-  res.render('update', { title: 'Update User Data' })  
+  res.render('updateuser', { title: 'Update User Data' })  
 })
+
+app.get('/createbio', (req, res) => {
+  res.render('createbio', { title: 'Enter Biodata' })  
+})
+
+app.get('/updatebio', (req, res) => {
+  res.render('createbio', { title: 'Enter Biodata' })  
+})
+
+
 
 app.use('/api', apiRoute)
 

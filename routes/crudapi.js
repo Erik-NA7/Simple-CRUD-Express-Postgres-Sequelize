@@ -2,7 +2,6 @@ const { UserGames, Biodata, GameHistories } = require('../models')
 // const { Biodata } = require('../models').Biodata
 // const { GameHistories } = require('../models').GameHistories
 const express = require('express')
-const api = express()
 
 // create and save new user
 exports.create = (req, res) => {
@@ -13,8 +12,27 @@ exports.create = (req, res) => {
     username: req.body.username,
     password: req.body.password,
   })
+  .then(data => { 
+    // res.send(data)
+    res.redirect('/createbio')
+  }).catch(err => {
+    res.status(500).send({
+      message:err.message||"Can't create user"
+    })
+  });
+}
+
+exports.createBio = (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({ message: "Content not be empty" })
+  }
+  Biodata.create({
+    fullname: req.body.fullname,
+    email: req.body.email
+  })
   .then(data => {
-      res.send(data)
+      // 
+      res.redirect('/')
   }).catch(err => {
     res.status(500).send({
       message:err.message||"Can't create user"
@@ -37,7 +55,8 @@ exports.update = (req, res) => {
       if (!data) {
         res.stats(404).send({ message: `Can't update user with id: ${id} or User not found` })
       } else {
-        res.send(data)
+        // res.send(data)
+        res.redirect('/updatebio')
     }
   })
     .catch(err => {
@@ -56,9 +75,9 @@ exports.findAll = (req, res) => {
 }
 
 exports.findOne = (req, res) => {
-  if (req.params.id) {
+  if (req.params.user_id) {
     UserGames.findOne({
-      where: { id: req.params.id }
+      where: { id: req.params.user_id }
     })
     .then (data => {
       res.send(data)

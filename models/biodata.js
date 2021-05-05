@@ -10,8 +10,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    userId: DataTypes.INTEGER,
-    allowNull: false,
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    }
   });
   Biodata.associate = function(models) {
     Biodata.belongsTo(models.UserGames, {

@@ -105,7 +105,7 @@ exports.createBio = (req, res) => {
 }
 
 // Retrieve all biodata
-exports.findAllbio = (req, res) => {
+exports.findAllBio = (req, res) => {
   Biodata.findAll()
   .then(data => {
       res.send(data)
@@ -113,7 +113,7 @@ exports.findAllbio = (req, res) => {
 }
 
 // Retrieve single biodata
-exports.findOnebio = (req, res) => {
+exports.findOneBio = (req, res) => {
   if (req.params.id) {
     Biodata.findOne({
       where: { userId: req.params.id }

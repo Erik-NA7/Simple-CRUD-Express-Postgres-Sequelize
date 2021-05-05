@@ -25,10 +25,10 @@ router.delete('/users/:id', crudapi.delete)
 router.post('/biodata', crudapi.createBio)
 
 // Find all biodata
-router.get('/biodata/', crudapi.findAllbio)
+router.get('/biodata', crudapi.findAllBio)
 
 // Find a single user biodata
-router.get('/biodata/:id', crudapi.findOnebio)
+router.get('/biodata/:id', crudapi.findOneBio)
 
 // Update biodata
 router.put('/biodata/:id', crudapi.updateBio)

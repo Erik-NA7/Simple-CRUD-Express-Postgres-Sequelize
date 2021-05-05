@@ -37,6 +37,10 @@ app.get('/users', (req, res) => {
   })
 })
 
+app.get('/create', (req, res) => {
+  res.render('createuser', { title: 'Create New User' })  
+})
+
 app.get('/users/:id', (req, res) => {
   res.render('updateuser')
   axios.get('http://localhost:3000/api/users/:id')
@@ -47,20 +51,6 @@ app.get('/users/:id', (req, res) => {
   .catch(err => {
     response.send(err);
   })
-})
-
-app.get('/biodata', (req, res) => {
-  axios.get('http://localhost:3000/api/biodata')
-  .then(function(response) {
-    res.render('biodata', { bio: response.data })
-  })
-  .catch(err => {
-    response.send(err);
-  })
-})
-
-app.get('/create', (req, res) => {
-  res.render('createuser', { title: 'Create New User' })  
 })
 
 app.get('/update', (req, res) => {
@@ -75,6 +65,16 @@ app.get('/update', (req, res) => {
 
 app.get('/createbio', (req, res) => {
   res.render('createbio', { title: 'Enter Biodata' })  
+})
+
+app.get('/biodata', (req, res) => {
+  axios.get('http://localhost:3000/api/biodata')
+  .then(function(response) {
+    res.render('biodata', { bio: response.data })
+  })
+  .catch(err => {
+    response.send(err);
+  })
 })
 
 app.get('/updatebio', (req, res) => {

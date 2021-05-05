@@ -8,7 +8,20 @@ module.exports = {
       userId: 1,
       createdAt: new Date(),
       updatedAt: new Date()
-     }], {});
+     }, {
+      fullname: 'Cliff Burton',
+      email: 'cliff@gmail.com',
+      userId: 2,
+      createdAt: new Date(),
+      updatedAt: new Date() 
+     }, {
+      fullname: 'Bondan Prakoso',
+      email: 'bondan@gmail.com',
+      userId: 3,
+      createdAt: new Date(),
+      updatedAt: new Date()
+     }
+    ], {});
   },
 
   down: async (queryInterface, Sequelize) => {

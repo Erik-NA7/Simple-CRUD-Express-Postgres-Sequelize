@@ -13,15 +13,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 let admin = require('./admin/admin.json')
 
+
 // Routes
 const apiRoute = require('./routes/apiroute');
 const { response } = require('express');
+
 app.use('/api', apiRoute)
 
 app.get('/', (req, res) => {
      res.render('login', { title: "Welcome to Dashboard" })
   })
-app.get('/', (req, res) => {
+app.get('/index', (req, res) => {
     res.render('index', { title: "Welcome to Dashboard" })
  })
 

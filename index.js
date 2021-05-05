@@ -82,7 +82,7 @@ app.get('/updatebio', (req, res) => {
 })
 
 app.get('/history', (req, res) => {
-  axios.get(`http://localhost:3000/api/history/`)
+  axios.get(`http://localhost:3000/api/history/${req.query.id}`)
   .then(function(response) {
     res.render('history', { his: response.data })
   })

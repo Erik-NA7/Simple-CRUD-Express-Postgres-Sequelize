@@ -174,7 +174,7 @@ exports.findAllhistory = (req, res) => {
 // Retrieve single biodata
 exports.findUserhistory = (req, res) => {
   if (req.params.id) {
-    GameHistories.findOne({
+    GameHistories.findAll({
       where: { userId: req.params.id }
     })
     .then (data => {

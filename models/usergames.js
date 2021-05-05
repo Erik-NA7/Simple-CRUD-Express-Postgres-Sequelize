@@ -4,11 +4,12 @@ module.exports = (sequelize, DataTypes) => {
   const UserGames =  sequelize.define('UserGames', {
     username: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false}
+      allowNull: false,
+    }
   });
   UserGames.associate = function(models) {
     UserGames.hasOne(models.Biodata, {

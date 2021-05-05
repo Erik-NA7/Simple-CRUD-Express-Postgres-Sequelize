@@ -8,10 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     userId: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
   });
   Biodata.associate = function(models) {
     Biodata.belongsTo(models.UserGames, {

@@ -4,17 +4,17 @@ module.exports = (sequelize, DataTypes) => {
   const GameHistories = sequelize.define('GameHistories', {
     score: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     userId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     }
   });
   GameHistories.associate = function(models) {
     GameHistories.belongsTo(models.UserGames, {
       foreignKey: 'userId',
-      onDelete: 'CASCADE'
+      onDelete: 'CASCADE',
     })
   };
   return GameHistories;

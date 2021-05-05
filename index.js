@@ -39,14 +39,14 @@ app.get('/users', (req, res) => {
 
 app.get('/users/:id', (req, res) => {
   res.render('updateuser')
-  // axios.get('http://localhost:3000/api/users/:id')
-  // .then(function(response) {
-  //   res.render('showone', {user: response.data})
-  //   console.log(user)
-  // })
-  // .catch(err => {
-  //   response.send(err);
-  // })
+  axios.get('http://localhost:3000/api/users/:id')
+  .then(function(response) {
+    res.render('showone', {user: response.data})
+    console.log(user)
+  })
+  .catch(err => {
+    response.send(err);
+  })
 })
 
 app.get('/biodata', (req, res) => {

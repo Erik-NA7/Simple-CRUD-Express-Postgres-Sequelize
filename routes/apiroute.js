@@ -4,7 +4,7 @@ const crudapi = require('./crudapi')
 
 //API
 
-// UserGames Routes
+// UserGames 
 // Create new user
 router.post('/users', crudapi.create)
 
@@ -20,20 +20,20 @@ router.put('/users/:id', crudapi.update)
 // Delete a user
 router.delete('/users/:id', crudapi.delete)
 
-// Biodata Routes
+// Biodata 
 // Create new user bio data
 router.post('/biodata', crudapi.createBio)
 
-// Update biodata
-router.put('/biodata/:id', crudapi.updateBio)
-
 // Find all biodata
-router.get('/biodata', crudapi.findAllbio)
+router.get('/biodata/', crudapi.findAllbio)
 
 // Find a single user biodata
 router.get('/biodata/:id', crudapi.findOnebio)
 
-// GameHistories Routes
+// Update biodata
+router.put('/biodata/:id', crudapi.updateBio)
+
+// GameHistories 
 // Create a User Game History
 router.post('/history', crudapi.createHistory)
 

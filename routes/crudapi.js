@@ -116,7 +116,7 @@ exports.findAllbio = (req, res) => {
 exports.findOnebio = (req, res) => {
   if (req.params.id) {
     Biodata.findOne({
-      where: { id: req.params.id }
+      where: { userId: req.params.id }
     })
     .then (data => {
       res.send(data)
@@ -132,9 +132,8 @@ exports.updateBio = (req, res) => {
   Biodata.update({
     fullname: req.body.fullname,
     email: req.body.email,
-    userId: req.body.userId
   }, {
-    where: { id: req.params.id }
+    where: { userId: req.params.id }
     })
   .then(data => {
       // 

@@ -21,6 +21,26 @@ exports.create = (req, res) => {
   }
 }
 
+// Retrieve all user
+exports.findAll = (req, res) => {
+  UserGames.findAll()
+  .then(data => {
+      res.send(data)
+    })
+}
+
+// Retrieve single user
+exports.findOne = (req, res) => {
+  if (req.params.id) {
+    UserGames.findOne({
+      where: { id: req.params.id }
+    })
+    .then (data => {
+      res.send(data)
+    })
+  }
+}
+
 // Update a user
 exports.update = (req, res) => {
   if (!req.body) {
@@ -43,27 +63,6 @@ exports.update = (req, res) => {
       res.status(500).send({ message: "An Error Occured" })
   })
 }
-
-// Retrieve all user
-exports.findAll = (req, res) => {
-  UserGames.findAll()
-  .then(data => {
-      res.send(data)
-    })
-}
-
-// Retrieve single user
-exports.findOne = (req, res) => {
-  if (req.params.id) {
-    UserGames.findOne({
-      where: { id: req.params.id }
-    })
-    .then (data => {
-      res.send(data)
-    })
-  }
-}
-
 // Delete a user
 exports.delete = (req, res) => {
   UserGames.destroy({
@@ -105,6 +104,26 @@ exports.createBio = (req, res) => {
   })
 }
 
+// Retrieve all biodata
+exports.findAllbio = (req, res) => {
+  Biodata.findAll()
+  .then(data => {
+      res.send(data)
+    })
+}
+
+// Retrieve single biodata
+exports.findOnebio = (req, res) => {
+  if (req.params.id) {
+    Biodata.findOne({
+      where: { id: req.params.id }
+    })
+    .then (data => {
+      res.send(data)
+    })
+  }
+}
+
 // Update and save user bio
 exports.updateBio = (req, res) => {
   if (!req.body) {
@@ -127,19 +146,37 @@ exports.updateBio = (req, res) => {
   })
 }
 
-// Retrieve all biodata
-exports.findAllbio = (req, res) => {
-  Biodata.findAll()
+// GameHistories Table Controller
+// Create a user game history
+exports.createHistory = (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({ message: "Content not be empty" })
+  }
+  GameHistories.create({
+    score: req.body.score,
+    userId: req.body.userId,
+  })
+  .then(data => {
+      res.send(data)
+      }).catch(err => {
+    res.status(500).send({
+      message:err.message||"Can't create user"
+    })
+  })
+}
+
+exports.findAllhistory = (req, res) => {
+  GameHistories.findAll()
   .then(data => {
       res.send(data)
     })
 }
 
 // Retrieve single biodata
-exports.findOnebio = (req, res) => {
+exports.findUserhistory = (req, res) => {
   if (req.params.id) {
-    Biodata.findOne({
-      where: { id: req.params.id }
+    GameHistories.findOne({
+      where: { userId: req.params.id }
     })
     .then (data => {
       res.send(data)

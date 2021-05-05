@@ -1,0 +1,22 @@
+<%- include('include/_header') %>
+<form action="/" method="POST" id="userdata">User Data
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th class="text-center">User Id</th>
+        <th class="text-center">Score</th>
+        <th class="text-center">Date</th>
+      </tr>
+    </thead>
+    <% for (var i of his) { %>
+      <tr>
+        <td><%= i.userId %></td>
+        <td><%= i.score %></td>
+        <td><%= i.createdAt %></td>
+        </td>
+      </tr>
+      <% } %>
+      <form>
+        <input type="button" value="Back" class="btn btn-secoundary" onclick="history.back()">
+      </form>
+<%- include('include/_footer') %>   

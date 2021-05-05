@@ -1,0 +1,35 @@
+<form action="/" method="POST" id="userdata">User Data
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th class="text-center">Full Name</th>
+          <th class="text-center">Email</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+        <tr>
+          <td><%= bio.fullname %></td>
+          <td><%= bio.email %></td>
+          <td class="d-flex justify-content-center" >
+            <div class="btn-group" role="group">
+              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Update
+              </button>
+              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" href="/update?id=<%= i.id%>">User Data</a>
+                <a class="dropdown-item" href="/updatebio?id=<%= i.id%>">User Bio</a>
+              </div>
+            </div>
+            <div class="btn-group" role="group">
+              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                View
+              </button>
+              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" href="/history?id=<%= i.id%>">History</a>
+              </div>
+            </div>
+            <a href="/" class="btn btn-secondary delete" data-id="<%= i.id%>">
+              <span class="text-gradient">Delete</span>
+            </a>
+          </td>
+        </tr>

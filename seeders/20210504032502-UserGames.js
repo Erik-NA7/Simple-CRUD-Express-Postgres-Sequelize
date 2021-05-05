@@ -9,7 +9,7 @@ module.exports = {
       updatedAt: new Date()
       },
     {
-      username: 'liffburton',
+      username: 'cliffburton',
       password: 'seekndestroy',
       createdAt: new Date(),
       updatedAt: new Date()

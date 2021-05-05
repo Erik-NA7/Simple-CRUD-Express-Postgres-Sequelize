@@ -68,7 +68,7 @@ app.get('/createbio', (req, res) => {
 })
 
 app.get('/biodata', (req, res) => {
-  axios.get('http://localhost:3000/api/biodata')
+  axios.get(`http://localhost:3000/api/biodata/${req.query.id}`)
   .then(function(response) {
     res.render('biodata', { bio: response.data })
   })

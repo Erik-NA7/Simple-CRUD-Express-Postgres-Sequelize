@@ -81,6 +81,16 @@ app.get('/updatebio', (req, res) => {
   res.render('createbio', { title: 'Enter Biodata' })  
 })
 
+app.get('/history', (req, res) => {
+  axios.get(`http://localhost:3000/api/history/${req.query.id}`)
+  .then(function(response) {
+    res.render('history', { his: response.data })
+  })
+  .catch(err => {
+    response.send(err);
+  })
+})
+
 app.listen(port, async () => {
   console.log(`Server is up and running at http:localhost:${port}`)
 })

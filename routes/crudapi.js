@@ -1,9 +1,8 @@
 const { UserGames, Biodata, GameHistories } = require('../models')
-// const { Biodata } = require('../models').Biodata
-// const { GameHistories } = require('../models').GameHistories
 const express = require('express')
 
-// create and save new user
+// UserGames Table controller
+// Create and save new user
 exports.create = (req, res) => {
   if (!req.body) {
     res.status(400).send({ message: "Content not be empty" })
@@ -22,7 +21,7 @@ exports.create = (req, res) => {
   }
 }
 
-// update user
+// Update a user
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({ message: "No data changeed!" })
@@ -45,7 +44,49 @@ exports.update = (req, res) => {
   })
 }
 
-// create and save new user bio
+// Retrieve all user
+exports.findAll = (req, res) => {
+  UserGames.findAll()
+  .then(data => {
+      res.send(data)
+    })
+}
+
+// Retrieve single user
+exports.findOne = (req, res) => {
+  if (req.params.id) {
+    UserGames.findOne({
+      where: { id: req.params.id }
+    })
+    .then (data => {
+      res.send(data)
+    })
+  }
+}
+
+// Delete a user
+exports.delete = (req, res) => {
+  UserGames.destroy({
+      where: { id: req.params.id }
+  })
+  .then(data => {
+    if (!data) {
+      res.status(404).send({ message: `Can't delete user with id: ${id} or User not found` })
+    } else {
+      res.send({
+        message: "User deleted"
+      })
+    }     
+  })
+  .catch(err => {
+    res.status(500).send({
+      message: "Error occured"
+    })
+  })
+}
+
+// Biodata Table Controller
+// Create and save new user bio
 exports.createBio = (req, res) => {
   if (!req.body) {
     return res.status(400).send({ message: "Content not be empty" })
@@ -64,7 +105,7 @@ exports.createBio = (req, res) => {
   })
 }
 
-// update and save user bio
+// Update and save user bio
 exports.updateBio = (req, res) => {
   if (!req.body) {
     return res.status(400).send({ message: "Content not be empty" })
@@ -86,27 +127,7 @@ exports.updateBio = (req, res) => {
   })
 }
 
-// retrieve all user
-exports.findAll = (req, res) => {
-  UserGames.findAll()
-  .then(data => {
-      res.send(data)
-    })
-}
-
-// retrieve single user
-exports.findOne = (req, res) => {
-  if (req.params.id) {
-    UserGames.findOne({
-      where: { id: req.params.id }
-    })
-    .then (data => {
-      res.send(data)
-    })
-  }
-}
-
-// retrieve all biodata
+// Retrieve all biodata
 exports.findAllbio = (req, res) => {
   Biodata.findAll()
   .then(data => {
@@ -114,7 +135,7 @@ exports.findAllbio = (req, res) => {
     })
 }
 
-// retrieve single biodata
+// Retrieve single biodata
 exports.findOnebio = (req, res) => {
   if (req.params.id) {
     Biodata.findOne({
@@ -124,46 +145,4 @@ exports.findOnebio = (req, res) => {
       res.send(data)
     })
   }
-}
-
-// delete a user
-exports.delete = (req, res) => {
-  UserGames.destroy({
-      where: { id: req.params.id }
-  })
-  .then(data => {
-    if (!data) {
-      res.status(404).send({ message: `Can't delete user with id: ${id} or User not found` })
-    } else {
-      res.send({
-        message: "User deleted"
-      })
-    }     
-  })
-  .catch(err => {
-    res.status(500).send({
-      message: "Error occured"
-    })
-  })
-}
-
-exports.deleteBio = (req, res) => {
-  Biodata.destroy({
-      where: { id: req.params.id }
-  })
-  .then(data => {
-    if (!data) {
-      res.status(404).send({ message: `Can't delete biodata with id: ${id} or data not found` })
-    } else {
-      res.send({
-        message: "Biodata deleted"
-      })
-    }
-      
-  })
-  .catch(err => {
-    res.status(500).send({
-      message: "Error occured"
-    })
-  })
 }

@@ -1,21 +1,31 @@
-<h5>User Game History</h5>
-<form action="/" method="POST" id="userhistory">User History
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th class="text-center">ID</th>
-          <th class="text-center">Username</th>
-          <th class="text-center">Score</th>
-          <th class="text-center">Created</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="text-center">1</td>
-          <td>username</td>
-          <td>exampleName</td>
-          <td>example@gmail.com</td>
-        </tr>
-      </tbody>
-    </table>
-  </form>
+<form action="/" method="POST" id="userdata">User Data
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th class="text-center">Full Name</th>
+        <th class="text-center">Email</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+      <tr>
+        <td><%= his.fullname %></td>
+        <td><%= his.email %></td>
+        <td class="d-flex justify-content-center" >
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Update
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" href="/update?id=<%= his.id%>">User Data</a>
+            </div>
+          </div>
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              View
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" href="/history?id=<%= his.id%>">History</a>
+            </div>
+          </div>
+        </td>
+      </tr>

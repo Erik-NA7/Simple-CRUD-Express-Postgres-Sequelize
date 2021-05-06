@@ -19,7 +19,7 @@ $("#createUser").submit(function(event){
 })
 
 $("#updateUser").submit(function(event){
-   
+  event.preventDefault() 
   var unindexed_array = $(this).serializeArray();
   var data = {}
   $.map(unindexed_array, function(n,i){
@@ -56,6 +56,7 @@ $("#userBio").submit(function(event){
 })
 
 $("#updateuserBio").submit(function(event){
+  event.preventDefault()
   var unindexed_array = $(this).serializeArray();
   var data = {}
   $.map(unindexed_array, function(n,i){

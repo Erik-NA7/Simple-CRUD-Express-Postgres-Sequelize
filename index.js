@@ -93,7 +93,7 @@ app.get('/biodata', (req, res) => {
 app.get('/updatebio', (req, res) => {
   axios.get(`http://localhost:3000/api/biodata/${req.query.id}`)
   .then(function(response) {
-    res.render('updatebio', { user: response.data })
+    res.render('updatebio', { bio: response.data })
   })
   .catch(err => {
     res.send(err);

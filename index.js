@@ -48,7 +48,6 @@ app.get('/user', (req, res) => {
   axios.get(`http://localhost:3000/api/users/${req.query.id}`)
   .then(function(response) {
     res.render('showone', {user: response.data})
-    console.log(user)
   })
   .catch(err => {
     response.send(err);
@@ -80,7 +79,13 @@ app.get('/biodata', (req, res) => {
 })
 
 app.get('/updatebio', (req, res) => {
-  res.render('createbio', { title: 'Enter Biodata' })  
+  axios.get(`http://localhost:3000/api/biodata/${req.query.id}`)
+  .then(function(response) {
+    res.render('updatebio', { user: response.data })
+  })
+  .catch(err => {
+    res.send(err);
+  })
 })
 
 app.get('/history', (req, res) => {

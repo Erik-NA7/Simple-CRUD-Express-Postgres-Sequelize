@@ -6,4 +6,3 @@
 4. Run sequelize db:create to create the database
 5. Run sequelize db:migrate to create table in postgres
 6. Run sequlize db:seed:all to insert dummy data
-

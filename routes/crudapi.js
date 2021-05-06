@@ -132,8 +132,9 @@ exports.updateBio = (req, res) => {
   Biodata.update({
     fullname: req.body.fullname,
     email: req.body.email,
+    userId: req.params.userId
   }, {
-    where: { userId: req.params.id }
+    where: { userId: req.params.userId }
     })
   .then(data => {
       // 

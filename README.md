@@ -1,4 +1,4 @@
-## CRUD API Implementation using NodeJS, Sequelize, PostgrSQL and Simple Dashboard
+## CRUD API Implementation using Express, Sequelize with PostgrSQL and Simple Dashboard
 
 1. Install packages with npm i
 2. Install sequelize-cli globally

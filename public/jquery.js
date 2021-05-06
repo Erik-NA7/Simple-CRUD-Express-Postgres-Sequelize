@@ -87,7 +87,7 @@ $ondelete.click(function(){
   if (confirm("Delete this user?")) {
   $.ajax(request).done(function(response) {
     alert("User Deleted")
-    location.reload
+    location.reload()
   });
   }
 })

@@ -1,6 +1,10 @@
 'use strict';
 const { Model } = require('sequelize');
+const lockAttribute = require('sequelize-noupdate-attributes')
 module.exports = (sequelize, DataTypes) => {
+  const { Sequelize } = sequelize;
+  lockAttribute(sequelize);
+
   const GameHistories = sequelize.define('GameHistories', {
     score: {
       type: DataTypes.INTEGER,
@@ -9,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      noUpdate: true,
     }
   });
   GameHistories.associate = function(models) {

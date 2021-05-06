@@ -15,6 +15,7 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "pg": "^8.6.0",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "sequelize-noupdate-attributes": "^1.0.0"
   }
 }

@@ -18,8 +18,8 @@
                 Update
               </button>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="/update?id=<%= bio.id%>">User Data</a>
-                <a class="dropdown-item" href="/updatebio?id=<%= bio.id%>">User Bio</a>
+                <a class="dropdown-item" href="/update?id=<%= bio.userId%>">User Data</a>
+                <a class="dropdown-item" href="/updatebio?id=<%= bio.userId%>">User Bio</a>
               </div>
             </div>
             <div class="btn-group" role="group">
@@ -27,7 +27,8 @@
                 View
               </button>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="/history?id=<%= bio.id%>">History</a>
+                <a class="dropdown-item" href="/history?id=<%= bio.userId%>">History</a>
+                <a class="dropdown-item" href="/user?id=<%= bio.userId%>">User</a>
               </div>
             </div>
           </td>

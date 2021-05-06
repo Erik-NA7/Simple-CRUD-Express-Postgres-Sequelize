@@ -54,6 +54,7 @@ app.get('/user', (req, res) => {
   })
 })
 
+// Show user update page
 app.get('/update', (req, res) => {
   axios.get(`http://localhost:3000/api/users/${req.query.id}`)
   .then(function(response) {
@@ -64,6 +65,17 @@ app.get('/update', (req, res) => {
   })
 })
 
+app.get('/delete', (req, res) => {
+  axios.delete(`http://localhost:3000/api/users/${req.query.id}`)
+  .then(function(response) {
+    res.render('showall', { users: response.data })
+  })
+  .catch(err => {
+    response.send(err);
+  })
+})
+
+// Show user biodata update page
 app.get('/createbio', (req, res) => {
   res.render('createbio', { title: 'Enter Biodata' })  
 })

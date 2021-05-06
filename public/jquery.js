@@ -18,6 +18,14 @@ $("#createUser").submit(function(event){
   })
 })
 
+// $("#findUserForm").submit(function(event){
+//   // var unindexed_array = $(this).serializeArray();
+//   // var data = {}
+//   // $.map(unindexed_array, function(n,i){
+//   //     data[n['name']] = n['value']
+//       window.location.href(`http://localhost:3000/users/`)
+//   })
+
 $("#updateUser").submit(function(event){
    
   var unindexed_array = $(this).serializeArray();

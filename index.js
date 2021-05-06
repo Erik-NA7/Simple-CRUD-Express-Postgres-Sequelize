@@ -27,7 +27,8 @@ app.get('/index', (req, res) => {
     res.render('index', { title: "Welcome to Dashboard" })
  })
 
-app.get('/users', (req, res) => {
+// Show all users page
+ app.get('/users', (req, res) => {
   axios.get('http://localhost:3000/api/users')
   .then(function(response) {
     res.render('showall', { users: response.data })
@@ -37,13 +38,14 @@ app.get('/users', (req, res) => {
   })
 })
 
+// Create user page
 app.get('/create', (req, res) => {
   res.render('createuser', { title: 'Create New User' })  
 })
 
-app.get('/users/:id', (req, res) => {
-  res.render('updateuser')
-  axios.get('http://localhost:3000/api/users/:id')
+// Show user find result page
+app.get('/user', (req, res) => {
+  axios.get(`http://localhost:3000/api/users/${req.query.id}`)
   .then(function(response) {
     res.render('showone', {user: response.data})
     console.log(user)
